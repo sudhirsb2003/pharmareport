@@ -1,0 +1,6 @@
+development:
+    adapter: postgresql
+    host: localhost
+    database: pharma_report_develeopment
+    username: postgres
+    password: 

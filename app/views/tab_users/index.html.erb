@@ -1,0 +1,31 @@
+<h1>Listing tab_users</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Employee uid</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tab_users.each do |tab_user| %>
+      <tr>
+        <td><%= tab_user.name %></td>
+        <td><%= tab_user.address %></td>
+        <td><%= tab_user.employee_uid %></td>
+        <td><%= link_to 'Show', tab_user %></td>
+        <td><%= link_to 'Edit', edit_tab_user_path(tab_user) %></td>
+        <td><%= link_to 'Destroy', tab_user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tab user', new_tab_user_path %>

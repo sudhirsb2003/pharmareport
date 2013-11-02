@@ -1,5 +1,6 @@
 Pharmareport::Application.routes.draw do
   resources :tab_users
+  match '/signup',  to: 'tab_users#new',            via: 'get'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -24,7 +24,7 @@ class TabUsersController < ApplicationController
   # POST /tab_users
   # POST /tab_users.json
   def create
-    @tab_user = TabUser.new(tab_user_params)
+    @tab_user = TabUser.new(auth_user_params)
 
     respond_to do |format|
       if @tab_user.save
@@ -70,5 +70,9 @@ class TabUsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def tab_user_params
       params.require(:tab_user).permit(:name, :address, :employee_uid,:photo)
+    end
+
+    def auth_user_params
+      params.require(:tab_user).permit(:name,:password,:password_confirmation)
     end
 end

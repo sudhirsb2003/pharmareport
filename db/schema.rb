@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131102054811) do
+ActiveRecord::Schema.define(version: 20131102151747) do
 
   create_table "tab_users", force: true do |t|
     t.string   "name"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 20131102054811) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.string   "password_digest"
+    t.boolean  "admin",              default: false
   end
 
 end

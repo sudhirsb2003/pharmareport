@@ -29,7 +29,7 @@ class TabUsersController < ApplicationController
     respond_to do |format|
       if @tab_user.save
         format.html { redirect_to @tab_user, notice: 'Tab user was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @tab_user }
+        format.json { render action: 'new', status: :created, location: @tab_user }
       else
         format.html { render action: 'new' }
         format.json { render json: @tab_user.errors, status: :unprocessable_entity }

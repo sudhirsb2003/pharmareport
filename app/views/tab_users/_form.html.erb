@@ -21,7 +21,23 @@
   </div>
   <div class="field">
     <%= f.label :employee_uid %><br>
+    <% if @tab_user.employee_uid.present? %>
+    <%= f.text_field :employee_uid  , disabled: true  %>
+    <% else %>
     <%= f.text_field :employee_uid %>
+    <% end %>
+
+  </div>
+
+  <div class="field">
+    <%= f.label :password %><br>
+    <%= f.password_field :password %>    
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation ,"Confirm Password"%><br>
+    <%= f.password_field :password_confirmation%>
+    
   </div>
 
   <div class="field">

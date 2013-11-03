@@ -70,7 +70,7 @@ class TabUsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tab_user_params
-      params.require(:tab_user).permit(:name, :address, :employee_uid,:photo)
+      params.require(:tab_user).permit(:name, :address, :employee_uid,:photo,:password,:password_confirmation)
     end
 
     def auth_user_params

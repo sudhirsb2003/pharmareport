@@ -1,4 +1,6 @@
 Pharmareport::Application.routes.draw do
+  resources :doctors
+
   resources :tab_users
   resources :sessions , only: [:new,:create,:destroy]
   match '/signup',  to: 'tab_users#new',  via: 'get'

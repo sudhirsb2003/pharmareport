@@ -1,6 +1,7 @@
 <h1>Sign In</h1>
 
-<%= form_for :session, url: sessions_path do |f| %>
+<%= form_for :session, url: sessions_path , method: :post  do |f| %>
+<%#= form_for(:session, url: sessions_path) do |f| %>
 <div class = "field">
 	<%= f.label :name %><br>
 	<%= f.text_field :name %>

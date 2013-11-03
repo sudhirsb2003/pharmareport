@@ -1,5 +1,6 @@
 class TabUsersController < ApplicationController
   before_action :set_tab_user, only: [:show, :edit, :update, :destroy]
+  before_action :login_required , only: [:show,:edit,:update]
 
   # GET /tab_users
   # GET /tab_users.json

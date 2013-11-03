@@ -1,4 +1,6 @@
 Pharmareport::Application.routes.draw do
+  resources :medical_shops
+
   resources :doctors
 
   resources :tab_users

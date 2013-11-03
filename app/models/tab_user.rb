@@ -8,5 +8,6 @@ class TabUser < ActiveRecord::Base
 	has_attached_file :photo, :styles => { :medium => "300x300>", :thumb => "100x100>" }#, :default_url => "/images/:style/missing.png"
 
 	has_many :doctors
+	has_many :medical_shops
 
 end

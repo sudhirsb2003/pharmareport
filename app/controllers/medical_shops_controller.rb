@@ -1,0 +1,2 @@
+class MedicalShopsController < ApplicationController
+end

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  doctor_id: 
+  medical_shop_id: 
+  tab_user_id: 
+
+two:
+  doctor_id: 
+  medical_shop_id: 
+  tab_user_id: 

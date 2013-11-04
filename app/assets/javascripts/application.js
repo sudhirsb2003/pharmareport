@@ -11,6 +11,14 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require jquery-ui
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$function(){
+
+	$("#appointment_doctor_name").autocomplete({
+		source: ["Dr1","Sr","Dr2"]
+	})
+}

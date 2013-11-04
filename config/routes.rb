@@ -1,7 +1,9 @@
 Pharmareport::Application.routes.draw do
+  
   resources :medical_shops
 
   resources :doctors
+  resources  :appointments
 
   resources :tab_users
   resources :sessions , only: [:new,:create,:destroy]

@@ -1,0 +1,16 @@
+New appointment for users
+
+<%= form_for @appointment do |f| %>
+
+<div class="field">
+<%= f.label :doctor_name %><br>
+<%= f.text_field :doctor_name %>
+</div>
+
+<div class="field">
+<%= f.label :medical_shop_id%><br>
+<%= f.text_field :medical_shop_id %>
+</div>
+<%= f.submit %>
+
+<% end %>

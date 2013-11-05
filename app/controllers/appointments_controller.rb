@@ -7,7 +7,7 @@ class AppointmentsController < ApplicationController
   	if current_user.admin?
     	@appointments=Appointment.includes(:admin,:tab_user,:doctor,:medical_shop).all 
     else
-    	@appointments=current_user.appointments
+  	@appointments=current_user.appointments
     end
   end
 

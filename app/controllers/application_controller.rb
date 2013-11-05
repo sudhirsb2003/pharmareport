@@ -7,10 +7,22 @@ class ApplicationController < ActionController::Base
   	@current_user ||= TabUser.find(session[:user_id]) if session[:user_id]
   end
 
-  helper_method :current_user 
+  helper_method :current_user , :logged_in?  , :admin?
 
   def login_required
   	redirect_to login_path , alert: "Not logged In"  if current_user.nil?
+  end
+
+  def logged_in?
+    !!current_user
+  end
+
+  def admin?
+    logged_in? && current_user.admin?
+  end
+
+  def admin_required
+    admin?
   end
 
   

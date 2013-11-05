@@ -1,18 +1,37 @@
 
 
 <p>
-  <strong>Assigned to User:</strong>
+  <strong>Assigned to User:</strong><br>
   <%= @appointment.try(:tab_user_name) %>
 </p>
 
-<p>
-  <strong>Doctor to Visit:</strong>
-  <%= @appointment.try(:doctor_name) %>
-</p>
+<% if @appointment.doctor_name.present? %>
+	<span>
+	  <strong>Doctor to Visit:</strong><br>
+	  <%= @appointment.try(:doctor_name) %> 
+  </span>
+  <br>
+  <br>
+  <span>
+  	<strong>Doctor's Address</strong><br>
+  	<%= @appointment.doctor_address%>
+  </span>
+<% end %>
 
-<p>
-  <strong>Doctor to Visit:</strong>
-  <%= @appointment.try(:medical_shop_name) %>
-</p>
+<% if @appointment.medical_shop.present? %>
+	<p>
+	  <strong>Medical Shop Name:</strong><br>
+	  <%= @appointment.try(:medical_shop_name) %>
+	</p>
+  <br>
+	<p>
+	  <strong>Medical Shop Address:</strong><br>
+	  <%= @appointment.try(:medical_shop_address) %>
+	</p>
+<% end %>
+<br>
+<br>
 
 
+<%= link_to "New Appointment" , new_appointment_path %>
+<%= link_to "Delete this Appointment" ,appointment_path , method: :delete ,data: {confirm: "Are you sure?"} %>

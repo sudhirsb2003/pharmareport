@@ -2,6 +2,7 @@ class Appointment < ActiveRecord::Base
   belongs_to :doctor
   belongs_to :medical_shop
   belongs_to :tab_user
+  belongs_to :admin , class_name: "TabUser" , foreign_key: "admin_id"
 
   def doctor_name
   	doctor.try(:name)
@@ -26,6 +27,14 @@ class Appointment < ActiveRecord::Base
 
   def medical_shop_name=(name)
   	self.medical_shop = TabUser.find_by_shop_name(name) if name.present?
+  end
+
+  def doctor_address
+  	doctor.address
+  end
+
+  def medical_shop_address
+  	medical_shop.shop_address if medical_shop
   end
 
 end

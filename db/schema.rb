@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131104175228) do
+ActiveRecord::Schema.define(version: 20131105102909) do
 
   create_table "appointments", force: true do |t|
     t.integer  "doctor_id"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20131104175228) do
     t.integer  "tab_user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "admin_id"
   end
 
   add_index "appointments", ["doctor_id"], name: "index_appointments_on_doctor_id", using: :btree

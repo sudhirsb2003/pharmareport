@@ -5,7 +5,13 @@ class TabUsersController < ApplicationController
   # GET /tab_users
   # GET /tab_users.json
   def index
-    @tab_users = TabUser.all
+    if params[:term].present?
+      @tab_users = TabUser.order(:name).where("name ilike ?","%#{params[:term]}%")
+      render json: @tab_users.map(&:name)
+    else
+      @tab_users= TabUser.all
+      render html: @tab_users
+    end
   end
 
   # GET /tab_users/1

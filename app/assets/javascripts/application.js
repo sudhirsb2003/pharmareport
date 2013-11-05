@@ -16,9 +16,19 @@
 //= require turbolinks
 //= require_tree .
 
-$function(){
+$(function(){
 
-	$("#appointment_doctor_name").autocomplete({
-		source: ["Dr1","Sr","Dr2"]
+    $("#appointment_doctor_name").autocomplete({
+    	source: $("#appointment_doctor_name").data("autocomplete-source")
 	})
-}
+
+    $("#appointment_tab_user_name").autocomplete({
+    	source: $("#appointment_tab_user_name").data("autocomplete-source")
+	})
+
+
+    $("#appointment_medical_shop_name").autocomplete({
+    	source: $("#appointment_medical_shop_name").data("autocomplete-source")
+	})
+    
+})

@@ -3,13 +3,18 @@ New appointment for users
 <%= form_for @appointment do |f| %>
 
 <div class="field">
-<%= f.label :doctor_name %><br>
-<%= f.text_field :doctor_name %>
+<%= f.label :tab_user_name %><br>
+<%= f.text_field :tab_user_name , data: {autocomplete_source: tab_users_path}%>
 </div>
 
 <div class="field">
-<%= f.label :medical_shop_id%><br>
-<%= f.text_field :medical_shop_id %>
+<%= f.label :doctor_name %><br>
+<%= f.text_field :doctor_name , data: {autocomplete_source: doctors_path}%>
+</div>
+
+<div class="field">
+<%= f.label :medical_shop_name %><br>
+<%= f.text_field :medical_shop_name , data: {autocomplete_source: medical_shops_path}  %>
 </div>
 <%= f.submit %>
 

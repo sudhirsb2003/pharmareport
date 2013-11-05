@@ -1,0 +1,18 @@
+
+
+<p>
+  <strong>Assigned to User:</strong>
+  <%= @appointment.try(:tab_user_name) %>
+</p>
+
+<p>
+  <strong>Doctor to Visit:</strong>
+  <%= @appointment.try(:doctor_name) %>
+</p>
+
+<p>
+  <strong>Doctor to Visit:</strong>
+  <%= @appointment.try(:medical_shop_name) %>
+</p>
+
+

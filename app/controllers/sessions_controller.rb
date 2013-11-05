@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
 		user=TabUser.find_by(name: params[:session][:name])
 		if user && user.authenticate(params[:session][:password])
 			session[:user_id] = user.id
-			redirect_to tab_user_url(user) , notice: "Successfully Logged In"
+			redirect_to appointments_path , notice: "Successfully Logged In"
 		else
 			redirect_to login_path , notice: "Invalid Username/Password"
 

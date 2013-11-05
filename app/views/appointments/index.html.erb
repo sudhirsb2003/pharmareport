@@ -1,27 +1,8 @@
 <h1>List of Appointment created</h1>
-
-<table>
-	<thead>
-		<tr>
-		  <th>TabUser</th>
-      <th>Assigned Doctor</th>
-      <th>Assigned MedicalShop</th>
-      <th>Assigned by Admin</th>
-      <th>View appointment</th>
-		</tr>
-	</thead>
-
-	<tbody>
-		<% @appointments.each do |appointment| %>
-		 <tr>
-        <td><%= appointment.tab_user_name %></td>
-        <td><%= appointment.doctor_name %></td>
-        <td><%= appointment.medical_shop_name %></td>
-        <td><%= appointment.admin.name%></td>
-        <td><%= link_to "View" , appointment_path(appointment)%></td>
-      </tr>
-		<% end %>
-	</tbody>
-</table>
+<% if current_user.admin?%>
+<%= render :partial => "admin_appointments" , locals: {appointments: @appointments} %>
+<% else%>
+<%= render :partial => "tab_users_appointments" , locals: {appointments: @appointments} %>
+<% end %>
 
 <%= link_to "New Appointment" , new_appointment_path %>

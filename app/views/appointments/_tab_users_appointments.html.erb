@@ -1,0 +1,20 @@
+<table>
+	<thead>
+		<tr>
+      <th>Assigned Doctor | </th>
+      <th>Assigned MedicalShop | </th>
+      <th>Status |</th>
+      <th>View appointment</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% appointments.each do |appointment| %>
+		 <tr>
+        <td><%= appointment.doctor_name %></td>
+        <td><%= appointment.medical_shop_name %></td>
+        <td><%= link_to "View" , appointment_path(appointment)%></td>
+      </tr>
+		<% end %>
+	</tbody>
+</table>

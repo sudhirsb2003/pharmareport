@@ -31,4 +31,28 @@ $(function(){
     	source: $("#appointment_medical_shop_name").data("autocomplete-source")
 	})
     
+
+    $("#doctor_name_check").bind('change', function(){
+			if(this.checked){
+			$("#appointment_doctor_name").show();
+			$("#medical_shop_check").attr("disabled","disabled");
+			}
+			else{
+			$("#appointment_doctor_name").hide();
+				$("#medical_shop_check").removeAttr("disabled","disabled");
+			}
+		})
+
+		  $("#medical_shop_check").bind('change', function(){
+				if(this.checked){
+				$("#appointment_medical_shop_name").show();
+				$("#doctor_name_check").attr("disabled","disabled");
+				}
+				else{
+				$("#appointment_medical_shop_name").hide();
+				$("#doctor_name_check").removeAttr("disabled","disabled");
+				}
+		})
+
+
 })

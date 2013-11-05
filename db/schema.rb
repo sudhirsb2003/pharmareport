@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131105175354) do
+ActiveRecord::Schema.define(version: 20131105180455) do
 
   create_table "appointments", force: true do |t|
     t.integer  "doctor_id"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 20131105175354) do
     t.datetime "updated_at"
     t.integer  "admin_id"
     t.string   "status",          default: "pending"
+    t.datetime "in_time"
+    t.datetime "out_time"
   end
 
   add_index "appointments", ["doctor_id"], name: "index_appointments_on_doctor_id", using: :btree

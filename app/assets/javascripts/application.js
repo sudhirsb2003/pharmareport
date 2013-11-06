@@ -20,7 +20,7 @@ $(function(){
 
     $("#appointment_doctor_name").autocomplete({
     	source: $("#appointment_doctor_name").data("autocomplete-source")
-	})
+	  })
 
     $("#appointment_tab_user_name").autocomplete({
     	source: $("#appointment_tab_user_name").data("autocomplete-source")
@@ -53,6 +53,10 @@ $(function(){
 				$("#doctor_name_check").removeAttr("disabled","disabled");
 				}
 		})
-
+  $("#start_survey_button").on("click",function() {
+  	// body...
+  	$("#survey_report_form").toggle();
+  	$("#start_survey_button").hide();
+  })
 
 })

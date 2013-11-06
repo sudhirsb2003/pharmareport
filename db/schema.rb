@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131105180455) do
+ActiveRecord::Schema.define(version: 20131106133220) do
 
   create_table "appointments", force: true do |t|
     t.integer  "doctor_id"
@@ -42,6 +42,27 @@ ActiveRecord::Schema.define(version: 20131105180455) do
     t.text     "shop_address"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "reports", force: true do |t|
+    t.integer  "tab_user_id"
+    t.integer  "doctor_id"
+    t.integer  "medical_shop_id"
+    t.boolean  "product_shown"
+    t.boolean  "sample_given"
+    t.integer  "product_copy"
+    t.boolean  "doctor_have_stock"
+    t.boolean  "product_offer"
+    t.string   "offer_name"
+    t.text     "offer_detail"
+    t.boolean  "browsher_shown"
+    t.text     "doctors_comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "tab_users", force: true do |t|

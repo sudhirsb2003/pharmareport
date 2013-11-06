@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  tab_user_id: 1
+  doctor_id: 1
+  medical_shop_id: 1
+  product_shown: false
+  sample_given: false
+  product_copy: 1
+  doctor_have_stock: false
+  product_offer: false
+  offer_name: MyString
+  offer_detail: MyText
+  browsher_shown: false
+  doctors_comment: MyText
+
+two:
+  tab_user_id: 1
+  doctor_id: 1
+  medical_shop_id: 1
+  product_shown: false
+  sample_given: false
+  product_copy: 1
+  doctor_have_stock: false
+  product_offer: false
+  offer_name: MyString
+  offer_detail: MyText
+  browsher_shown: false
+  doctors_comment: MyText

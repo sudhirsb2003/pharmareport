@@ -22,8 +22,8 @@ class ApplicationController < ActionController::Base
   end
 
   def admin_required
-    admin?
+    redirect_to root_url, :notice => "only admin can perform this action" unless admin?
   end
 
-  
+
 end

@@ -35,3 +35,16 @@ ul.ui-autocomplete {
     }
   }
 }
+
+input[type="text"]
+{
+   font-size: inherit;
+    padding:4px;
+    width:250px;
+    font-family: monaco;
+}
+
+textarea {
+   font-family: monaco;
+   font-size: inherit;
+}

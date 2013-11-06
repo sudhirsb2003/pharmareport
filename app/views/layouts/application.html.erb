@@ -6,9 +6,15 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => false %>
   <%= csrf_meta_tags %>
 </head>
+<style>
+ #header {height:50px;border-bottom:1px solid black;}
+ #user {float:right}
+ .body_data {margin-top:20px;font-family:ubuntu;}
+</style>
 
-
-<div id="user_header">
+<div id="header">
+<b style ="font-size:20px;"> Pharma </b>
+ <div id = "user">
   <% if current_user %>
     Logged in as <%= current_user.name %>
     <%= link_to "Logout" ,logout_path ,:method => :delete%>
@@ -17,11 +23,11 @@
     <%= link_to "Log In", login_path %>
    <% end %>
 </div>
-
+</div>
 
 <body data-no-turbolink>
-
+<div class="body_data">
 <%= yield %>
-
+</div>
 </body>
 </html>

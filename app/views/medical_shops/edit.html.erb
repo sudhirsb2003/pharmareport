@@ -1,0 +1,28 @@
+<%= form_for (@medical) do |f| %>
+  <% if @medical.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@medical.errors.count, "error") %> prohibited this tab_user from being saved:</h2>
+
+      <ul>
+      <% @medical.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Shop_name %><br>
+    <%= f.text_field :shop_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Address %><br>
+    <%= f.text_area :shop_address, :size => "50x5" %>
+  </div>
+
+  <div class="field">
+    <%= f.submit "Update", :class=>"button black" %>
+  </div>
+
+<% end %>

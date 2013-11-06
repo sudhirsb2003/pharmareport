@@ -1,0 +1,14 @@
+<table>
+ <tr>
+  <td> Shop Name </td>
+  <td> Address </td>
+ </tr>
+ <% @medical_shop.each do |m| %>
+  <tr>
+   <td><%= m.shop_name %></td>
+   <td><%= m.shop_address %></td>
+  </tr>
+ <% end %>
+ </table>
+
+ <h4> <%= link_to "Add New Shop", new_medical_shop_path %> </h4>

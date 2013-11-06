@@ -1,37 +1,39 @@
+<table>
+ <tr>
+  <td> <b>Tab User Name:</b> </td>
+  <td> <%= @appointment.try(:tab_user_name) %></td>
+  </tr>
+
+  <tr>
+  <% if @appointment.doctor_name.present? %>
+  <td><b> Doctor to Visit: </b></td>
+  <td> <%= @appointment.try(:doctor_name) %></td>
+  </tr>
+  <% end %>
+
+  <tr>
+  <% if @appointment.medical_shop.present? %>
+  <td> Doctor's Address </td>
+  <td><%= @appointment.doctor_address%></td>
+  </tr>
+
+  <tr>
+	<td>Medical Shop Name:</td>
+  <td><%= @appointment.try(:medical_shop_name) %></td>
+  </tr>
+
+  <tr>
+	<td>Medical Shop Address:</td>
+  <td><%= @appointment.try(:medical_shop_address) %></td>
+	</tr>
+  <% end %>
+ </table><hr>
 
 
-<p>
-  <strong>Assigned to User:</strong><br>
-  <%= @appointment.try(:tab_user_name) %>
-</p>
-
-<% if @appointment.doctor_name.present? %>
-	<span>
-	  <strong>Doctor to Visit:</strong><br>
-	  <%= @appointment.try(:doctor_name) %> 
-  </span>
-  <br>
-  <br>
-  <span>
-  	<strong>Doctor's Address</strong><br>
-  	<%= @appointment.doctor_address%>
-  </span>
-<% end %>
-
-<% if @appointment.medical_shop.present? %>
-	<p>
-	  <strong>Medical Shop Name:</strong><br>
-	  <%= @appointment.try(:medical_shop_name) %>
-	</p>
-  <br>
-	<p>
-	  <strong>Medical Shop Address:</strong><br>
-	  <%= @appointment.try(:medical_shop_address) %>
-	</p>
-<% end %>
-<br>
-<br>
+<%= render "survey_report" %>
 
 
+<% if current_user.admin? %>
 <%= link_to "New Appointment" , new_appointment_path %>
 <%= link_to "Delete this Appointment" ,appointment_path , method: :delete ,data: {confirm: "Are you sure?"} %>
+<% end %>

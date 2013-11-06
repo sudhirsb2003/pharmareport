@@ -1,11 +1,11 @@
 class AppointmentsController < ApplicationController
-
-  before_action :admin_required , only: [:create,:show,:new]
+  before_action :login_required
+  before_action :admin_required , only: [:create,:new]
 
 
   def index
   	if current_user.admin?
-    	@appointments=Appointment.includes(:admin,:tab_user,:doctor,:medical_shop).all 
+    	@appointments=Appointment.includes(:admin,:tab_user,:doctor,:medical_shop).all
     else
   	@appointments=current_user.appointments
     end
@@ -18,17 +18,18 @@ class AppointmentsController < ApplicationController
 
 
 	def create
-		@tab_user=TabUser.find_by(:name => appointment_params[:tab_user_name]) if appointment_params[:tab_user_name].present?
+		@tab_user = TabUser.find_by(:name => appointment_params[:tab_user_name]) if appointment_params[:tab_user_name].present?
 		@doctor ||= Doctor.find_by(:name => appointment_params[:doctor_name]) if appointment_params[:doctor_name].present?
 		@shop_name ||= MedicalShop.find_by(:shop_name => appointment_params[:medical_shop_name]) if appointment_params[:medical_shop_name].present?
-		@assigned_by=current_user if current_user.admin?
+		@assigned_by = current_user
 		if appointment_params[:medical_shop_name].present?
-			@appointment=Appointment.new(medical_shop: @shop_name , tab_user: @tab_user , admin_id: @assigned_by.id)
+			@appointment = Appointment.new(medical_shop: @shop_name , tab_user: @tab_user , admin_id: @assigned_by.id)
+
 		elsif appointment_params[:doctor_name].present?
-			@appointment=Appointment.new(doctor: @doctor, tab_user: @tab_user , admin_id: @assigned_by.id)
+			@appointment = Appointment.new(doctor: @doctor, tab_user: @tab_user , admin_id: @assigned_by.id)
 		end
 		respond_to do |format|
-			if @appointment.save!
+			if @appointment.save
 				format.html { redirect_to @appointment, notice: 'Appointment successfully created.' }
         format.json { render action: 'new', status: :created, location: @tab_user }
 			else
@@ -39,7 +40,8 @@ class AppointmentsController < ApplicationController
 	end
 
 	def show
-		@appointment=Appointment.find(params[:id])
+		@appointment = Appointment.find(params[:id])
+		@survey_report = Report.new
 	end
 
 	def edit
@@ -50,6 +52,10 @@ class AppointmentsController < ApplicationController
 
 
 	private
+
+	def report_params
+  end
+
 	def appointment_params
 		params.require(:appointment).permit(:tab_user_name,:doctor_name,:medical_shop_name)
 	end

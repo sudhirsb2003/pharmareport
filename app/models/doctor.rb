@@ -1,5 +1,5 @@
 class Doctor < ActiveRecord::Base
-
-	validates :name , presence: true 
-	validates :address , presence: true 
+  has_many :reports
+	validates :name , presence: true
+	validates :address , presence: true
 end

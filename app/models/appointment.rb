@@ -3,6 +3,7 @@ class Appointment < ActiveRecord::Base
   belongs_to :medical_shop
   belongs_to :tab_user
   belongs_to :admin , class_name: "TabUser" , foreign_key: "admin_id"
+  has_many :reports
 
   def doctor_name
   	doctor.try(:name)

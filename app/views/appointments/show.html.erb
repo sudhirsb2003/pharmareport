@@ -29,11 +29,16 @@
   <% end %>
  </table><hr>
 
-<% unless current_user.admin? %>
- <%= render "survey_report" %>
-<% end %>
+<div id="survey_report_form" style = "display:none">
+<%= render "survey_report" %>
+</div>
 
 <% if current_user.admin? %>
 <%= link_to "New Appointment" , new_appointment_path %>
 <%= link_to "Delete this Appointment" ,appointment_path , method: :delete ,data: {confirm: "Are you sure?"} %>
 <% end %>
+
+<br>
+<br>
+
+ <%= link_to "Start Survey" , "javascript:void(0)" , id: "start_survey_button"%>

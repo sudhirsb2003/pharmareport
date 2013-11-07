@@ -1,9 +1,4 @@
-<style>
- #report{padding:30px;}
-</style>
-<div id ="report">
-<h1>survey</h1>
-<%= form_for :report , :url => reports_path, :method => :post do |f| %>
+<%= form_for :report , :url => appointment_reports_path(@appointment) ,method: :post do |f| %>
 
   <div class="field">
     <%= f.label :product_shown_to_doctor %><br />
@@ -75,4 +70,3 @@
   </div>
 
 <% end %>
-</div>

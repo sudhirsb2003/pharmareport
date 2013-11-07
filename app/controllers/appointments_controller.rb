@@ -41,7 +41,7 @@ class AppointmentsController < ApplicationController
 
 	def show
 		@appointment = Appointment.find(params[:id])
-		@survey_report = Report.new
+		@survey_report = @appointment.reports.new
 	end
 
 	def edit

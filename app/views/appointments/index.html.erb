@@ -1,6 +1,7 @@
-<h1>List of Appointment created</h1>
 <% if current_user.admin?%>
+<div id = "admin" style = "background:white">
 <%= render :partial => "admin_appointments" , locals: {appointments: @appointments} %>
+</div>
 <% else%>
 <%= render :partial => "tab_users_appointments" , locals: {appointments: @appointments} %>
 <% end %>

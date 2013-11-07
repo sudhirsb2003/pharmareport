@@ -1,7 +1,7 @@
-<table>
+<table class="table table-condensed" style="margin-top:120px;">
  <tr>
-  <td> Shop Name </td>
-  <td> Address </td>
+  <th> Shop Name </th>
+  <th> Address </th>
  </tr>
  <% @medical_shop.each do |m| %>
   <tr>
@@ -11,4 +11,4 @@
  <% end %>
  </table>
 
- <h4> <%= link_to "Add New Shop", new_medical_shop_path %> </h4>
+ <h5> <%= link_to "New Store", new_medical_shop_path, :class=> "label label-info" %> </h5>

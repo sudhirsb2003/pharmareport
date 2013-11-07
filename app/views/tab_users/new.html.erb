@@ -1,3 +1,22 @@
+<style>
+.form-control {
+    background-color: white;
+    border: 1px solid #CCCCCC;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    color: #555555;
+    display: block;
+    font-size: 14px;
+    height: 34px;
+    line-height: 1.42857;
+    padding: 6px 12px;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    vertical-align: middle;
+    width: 21%;
+}
+</style>
+
+
 <%= form_for(@tab_user , multipart: true)  do |f| %>
   <% if @tab_user.errors.any? %>
     <div id="error_explanation">
@@ -13,19 +32,17 @@
 
 <div class="field">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :class=>"form-control" %>
   </div>
   <div class="field">
     <%= f.label :password %><br>
-    <%= f.password_field :password %>
+    <%= f.password_field :password, :class=>"form-control" %>
   </div>
   <div class="field">
     <%= f.label :password_confirmation %><br>
-    <%= f.password_field :password_confirmation %>
-  </div>
+    <%= f.password_field :password_confirmation, :class=>"form-control" %>
+  </div><br><br>
 <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class=>"btn btn-default" %>
   </div>
 <%end%>
-
-

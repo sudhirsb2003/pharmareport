@@ -13,7 +13,7 @@
  body { margin-top:100px;padding-bottom: 70px; }
 </style>
 
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="padding:10px;">
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="padding-left:10px;padding-right:20px;">
 <ul class="nav navbar-nav">
   <li><a href="/">Pharma</a></li>
   <% if logged_in? && current_user.admin?   %>
@@ -24,7 +24,7 @@
 
  <div id = "user">
   <% if current_user %>
-    <b style ="font-size:9px;">Welcome <u><%= current_user.name %></u> |
+    <b style ="font-size:9px;">Welcome <u><%= current_user.name %><% if current_user.admin? %> (Admin) <% end %></u> |
     <%= link_to "Signout" ,logout_path ,:method => :delete %></b>
   <% else %>
     <%= link_to "Register", signup_path %> / <%= link_to "Sign-in", login_path %>

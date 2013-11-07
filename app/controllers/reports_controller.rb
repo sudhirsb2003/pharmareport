@@ -1,7 +1,8 @@
 class ReportsController < ApplicationController
 
   def create
-   @report = Report.new(report_params)
+  @appointment=Appointment.find(params[:appointment_id])
+   @report = @appointment.reports.build(report_params)
    @report.save
    redirect_to appointments_path
   end

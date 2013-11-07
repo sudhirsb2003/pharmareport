@@ -1,20 +1,14 @@
-
-
-<table class="table table-striped" style="margin-top:120px;">
+<table class="table table-condensed" style="margin-top:120px;">
  <tr>
-  <thead>
    <th> Doctor Name </th>
    <th> Degree </th>
    <th> Address </th>
-  </thead>
  </tr>
  <tr>
 <% @doctors.each do |d| %>
- <tbody>
   <td><%= d.name %></td>
   <td><%= d.degree %></td>
   <td><%= d.address %></td>
- </tbody>
 </tr>
 <% end %>
 </table>

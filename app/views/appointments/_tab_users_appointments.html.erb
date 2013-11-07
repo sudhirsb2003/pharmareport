@@ -1,22 +1,59 @@
+<style>
+	 #container {height:500px;width:auto;}
+	 #left{padding:10px;float:left; width:45%;}
+	 #right{padding:10px;float:right; width:45%;}
+	 h5{color:green}
+</style>
 
-<table>
+<div id ="container">
+
+<div id ="left">
+<h5><u> Doctors </u></h5>
+<table class="table table-condensed">
 	<thead>
 		<tr>
-      <th>Assigned Doctor | </th>
-      <th>Assigned MedicalShop | </th>
-      <th>Status |</th>
+		  <th>TabUser</th>
+      <th>Assigned Doctor</th>
+      <th>View appointment</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% appointments.each do |appointment| %>
+		<% if appointment.doctor_id %>
+		 <tr>
+        <td><%= appointment.tab_user_name %></td>
+        <td><%= appointment.doctor_name %></td>
+        <td><%= link_to "View" , appointment_path(appointment)%></td>
+      </tr>
+		<% end %>
+	 <% end %>
+	</tbody>
+</table>
+</div>
+
+<div id ="right">
+<h5> <u> Medical Stores</u> </h5>
+<table class="table table-condensed">
+	<thead>
+		<tr>
+		  <th>TabUser</th>
+      <th>Assigned MedicalShop</th>
       <th>View appointment</th>
 		</tr>
 	</thead>
 
 	<tbody>
 		<% appointments.each do |appointment| %>
+		<% if appointment.medical_shop_id %>
 		 <tr>
-        <td><%= appointment.doctor_name %></td>
+        <td><%= appointment.tab_user_name %></td>
         <td><%= appointment.medical_shop_name %></td>
-        <td><%= appointment.status%></td>
-        <td><%= link_to "View" , appointment_path(appointment)%></td>
+        <td><%= link_to "View", appointment_path(appointment)%></td>
       </tr>
 		<% end %>
+	 <% end %>
 	</tbody>
 </table>
+</div>
+
+</div>

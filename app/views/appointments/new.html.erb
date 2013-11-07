@@ -1,11 +1,12 @@
-
+<b style ="float:right"><%= link_to "View All Appointments" , appointments_path, :class=> "label label-primary" %></b>
 <%= form_for @appointment do |f| %>
 
 <div class="field">
 <%= f.label :tab_user_name %><br>
-<%= f.text_field :tab_user_name , data: {autocomplete_source: tab_users_path}%>
+<%= f.text_field :tab_user_name , data: {autocomplete_source: tab_users_path}, :placeholder => "Search by Tab user Name" %>
 </div>
-
+<br><br>
+<b> Select one of the following</b><br><br>
 <div class="field">
 	<%= f.label :doctor %><br>
 	<%= check_box_tag :doctor_name_check %><br>
@@ -16,10 +17,7 @@
 <%= f.label :medical_shop_name %><br>
 <%= check_box_tag :medical_shop_check %><br>
 <%= f.text_field :medical_shop_name , data: {autocomplete_source: medical_shops_path} , :placeholder => "Search by Medical Shop Name" ,:style => "display:none" %>
-</div>
-<%= f.submit %>
+</div><br><br>
+<%= f.submit "Submit", :class=>"btn btn-primary" %>
 
 <% end %>
-
-<br>
-<%= link_to "View All Appointments" , appointments_path %>

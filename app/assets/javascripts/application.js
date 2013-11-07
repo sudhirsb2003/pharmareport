@@ -14,6 +14,7 @@
 //= require jquery-ui
 //= require jquery_ujs
 //= require turbolinks
+//= require twitter/bootstrap
 //= require_tree .
 
 $(function(){
@@ -30,7 +31,7 @@ $(function(){
     $("#appointment_medical_shop_name").autocomplete({
     	source: $("#appointment_medical_shop_name").data("autocomplete-source")
 	})
-    
+
 
     $("#doctor_name_check").bind('change', function(){
 			if(this.checked){
@@ -53,10 +54,11 @@ $(function(){
 				$("#doctor_name_check").removeAttr("disabled","disabled");
 				}
 		})
-  $("#start_survey_button").on("click",function() {
-  	// body...
-  	$("#survey_report_form").toggle();
-  	$("#start_survey_button").hide();
-  })
+
+				$("#start_survey_button").on("click",function() {
+					// body...
+					$("#survey_report_form").toggle();
+					$("#start_survey_button").hide();
+				})
 
 })

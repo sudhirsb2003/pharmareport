@@ -1,4 +1,6 @@
-<table border>
+
+
+<table class="table table-striped" style="margin-top:120px;">
  <tr>
   <thead>
    <th> Doctor Name </th>
@@ -16,3 +18,7 @@
 </tr>
 <% end %>
 </table>
+
+<% if current_user.admin? %>
+ <%= link_to "Add more doctors", new_doctor_path %>
+<% end %>

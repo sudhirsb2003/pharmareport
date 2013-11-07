@@ -1,6 +1,7 @@
-<table>
+
+<table class="table table-condensed">
  <tr>
-  <td> <b>Tab User Name:</b> </td>
+  <td> <b>Tab User :</b> </td>
   <td> <%= @appointment.try(:tab_user_name) %></td>
   </tr>
 
@@ -9,15 +10,15 @@
   <td><b> Doctor to Visit: </b></td>
   <td> <%= @appointment.try(:doctor_name) %></td>
   </tr>
+  <tr>
+  <td><b> Clinic Address: </b></td>
+  <td> <%= @appointment.try(:doctor_address) %></td>
+  </tr>
+
   <% end %>
 
   <tr>
   <% if @appointment.medical_shop.present? %>
-  <td> Doctor's Address </td>
-  <td><%= @appointment.doctor_address%></td>
-  </tr>
-
-  <tr>
 	<td>Medical Shop Name:</td>
   <td><%= @appointment.try(:medical_shop_name) %></td>
   </tr>
@@ -27,18 +28,25 @@
   <td><%= @appointment.try(:medical_shop_address) %></td>
 	</tr>
   <% end %>
- </table><hr>
+
+  <tr>
+	<td><b>Status:</b></td>
+  <td><%= @appointment.status %></td>
+	</tr>
+
+ </table><br>
 
 <div id="survey_report_form" style = "display:none">
 <%= render "survey_report" %>
 </div>
 
 <% if current_user.admin? %>
-<%= link_to "New Appointment" , new_appointment_path %>
-<%= link_to "Delete this Appointment" ,appointment_path , method: :delete ,data: {confirm: "Are you sure?"} %>
+	<%= link_to "New Appointment" , new_appointment_path %> |
+	<%= link_to "Delete this Appointment" ,appointment_path , method: :delete ,data: {confirm: "Are you sure?"} %>
 <% end %>
 
 <br>
 <br>
-
- <%= link_to "Start Survey" , "javascript:void(0)" , id: "start_survey_button"%>
+<% unless current_user.admin? %>
+ <%= link_to "Start Survey" , "javascript:void(0)" , id: "start_survey_button" , :appointment_id => @appointment %>
+<% end %>

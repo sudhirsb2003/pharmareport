@@ -29,9 +29,9 @@
   <% end %>
  </table><hr>
 
-
-<%= render "survey_report" %>
-
+<% unless current_user.admin? %>
+ <%= render "survey_report" %>
+<% end %>
 
 <% if current_user.admin? %>
 <%= link_to "New Appointment" , new_appointment_path %>

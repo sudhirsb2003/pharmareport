@@ -3,8 +3,8 @@ Pharmareport::Application.routes.draw do
   resources :medical_shops
 
   resources :doctors
-  resources  :appointments
-
+  resources :appointments
+  resources :reports
   resources :tab_users
   resources :sessions , only: [:new,:create,:destroy]
   match '/signup',  to: 'tab_users#new',  via: 'get'

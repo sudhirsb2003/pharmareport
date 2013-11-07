@@ -9,7 +9,7 @@ class ReportsController < ApplicationController
 	private
 
 	def report_params
-		params.require(:report).permit(:tab_user_id,:doctor_id,:medical_shop_id,:product_shown, :product_copy, :product_offer, :doctors_comment, :doctor_have_stock, :browsher_shown, :sample_given, :photo)
+		params.require(:report).permit(:tab_user_id,:doctor_id,:medical_shop_id,:product_shown, :product_copy, :product_offer, :doctors_comment, :doctor_have_stock, :browsher_shown, :sample_given, :photo , :status)
 	end
 
 end

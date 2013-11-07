@@ -61,4 +61,13 @@ $(function(){
 					$("#start_survey_button").hide();
 				})
 
+				$("#report_sample_given_true").on("click",function(){
+					$("#sample_value").show();
+				})
+				
+				$("#report_sample_given_false").on("click",function(){
+					$("#sample_value").hide();
+				})
+
+
 })

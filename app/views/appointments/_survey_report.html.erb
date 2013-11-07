@@ -9,7 +9,7 @@
     <%= f.label :product_shown, "No", :value => "No" %>
     <%= f.radio_button :product_shown, false, :checked => true %>
   </div>
-
+<br>
   <div class="field">
     <%= f.label :sample_given_to_doctor %><br />
 
@@ -19,12 +19,13 @@
     <%= f.label :sample_given, "No", :value => "No" %>
     <%= f.radio_button :sample_given, false, :checked => true %>
   </div>
-   <b>** if yes then the following text box will appear else will be hidden</b>
-  <div class="field">
+  <br>
+  <div class="field" id="sample_value" style="display:none">
     <%= f.label :number_of_samples_given_to_doctor %><br />
     <%= f.text_field :product_copy %>
   </div>
 
+<br>
   <div class="field">
     <%= f.label :does_doctor_have_stock_of_the_product %><br />
 
@@ -34,7 +35,7 @@
     <%= f.label :doctor_stock, "No", :value => "No" %>
     <%= f.radio_button :doctor_have_stock, false, :checked => true %>
   </div>
-
+<br>
   <div class="field">
     <%= f.label :does_product_have_any_offer %><br />
 
@@ -44,27 +45,33 @@
     <%= f.label :product_offer, "No", :value => "No" %>
     <%= f.radio_button :product_offer, false, :checked => true %>
   </div>
+  <br>
   <b>** if any offer following text box will appear else be hidden( including offer detail) </b>
   <div class="field">
     <%= f.label :offer_name %><br />
     <%= f.text_field :offer_name %>
   </div>
-
+<br>
   <div class="field">
     <%= f.label :offer_detail %><br />
     <%= f.text_area :offer_detail, :size => "50x5" %>
   </div>
-
+<br>
   <div class="field">
     <%= f.label "doctor's_feedback" %><br />
     <%= f.text_area :doctors_comment, :size => "50x5" %>
   </div>
-
+<br>
   <div class="field">
     <%= f.label :upload_clinic_photo %><br />
     <%= f.file_field :photo %>
   </div>
-
+<br>
+  <div class="field">
+    <%= f.label :appointment_status %><br />
+    <%= select :appointment , :status , @appointment_status %>
+  </div>
+<br>
    <div class="field">
     <br><br><%= f.submit "Save Survey", :class => "btn btn-info" %><br />
   </div>

@@ -38,4 +38,8 @@ class Appointment < ActiveRecord::Base
   	medical_shop.shop_address if medical_shop
   end
 
+  def self.appointment_status
+    ["pending","completed"]
+  end
+
 end

@@ -10,7 +10,7 @@
 <div class="field">
 	<%= f.label :doctor %><br>
 	<%= check_box_tag :doctor_name_check %><br>
-	<%= f.text_field :doctor_name , data: {autocomplete_source: doctors_path} ,:placeholder => "Search by Doctor Name",:style => "display:none"%>
+	<%= f.text_field :doctor_tokens %>
 </div>
 
 <div class="field">

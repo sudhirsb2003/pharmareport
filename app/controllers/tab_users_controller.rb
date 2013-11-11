@@ -6,7 +6,7 @@ class TabUsersController < ApplicationController
   # GET /tab_users.json
   def index
     if params[:term].present?
-      @tab_users = TabUser.order(:name).where("name ilike ?","%#{params[:term]}%")
+      @tab_users = TabUser.order(:name).where("name ilike ? and admin is false ","%#{params[:term]}%")
       render json: @tab_users.map(&:name)
     else
       @tab_users= TabUser.all

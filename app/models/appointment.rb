@@ -5,6 +5,12 @@ class Appointment < ActiveRecord::Base
   belongs_to :admin , class_name: "TabUser" , foreign_key: "admin_id"
   has_many :reports
 
+  attr_reader :doctor_tokens
+  
+
+  def doctor_tokens=(ids)
+    doctor_ids = ids.split(",")
+  end
   def doctor_name
   	doctor.try(:name)
   end

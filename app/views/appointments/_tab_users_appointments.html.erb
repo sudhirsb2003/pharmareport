@@ -15,6 +15,7 @@
 		  <th>TabUser</th>
       <th>Assigned Doctor</th>
       <th>View appointment</th>
+      <th>Appointement Create On</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -24,6 +25,7 @@
         <td><%= appointment.tab_user_name %></td>
         <td><%= appointment.doctor_name %></td>
         <td><%= link_to "View" , appointment_path(appointment)%></td>
+        <td><%= appointment.created_at %></td>
       </tr>
 		<% end %>
 	 <% end %>

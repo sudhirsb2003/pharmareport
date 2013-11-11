@@ -19,14 +19,17 @@ class AppointmentsController < ApplicationController
 
 	def create
 		@tab_user = TabUser.find_by(:name => appointment_params[:tab_user_name]) if appointment_params[:tab_user_name].present?
-		@doctor ||= Doctor.find_by(:name => appointment_params[:doctor_name]) if appointment_params[:doctor_name].present?
+		@doctor_ids ||=  appointment_params[:doctor_tokens].split(",").map(&:to_i) if appointment_params[:doctor_tokens].present?
+		@doctors=Doctor.find @doctor_ids
 		@shop_name ||= MedicalShop.find_by(:shop_name => appointment_params[:medical_shop_name]) if appointment_params[:medical_shop_name].present?
 		@assigned_by = current_user
 		if appointment_params[:medical_shop_name].present?
 			@appointment = Appointment.new(medical_shop: @shop_name , tab_user: @tab_user , admin_id: @assigned_by.id)
 
-		elsif appointment_params[:doctor_name].present?
-			@appointment = Appointment.new(doctor: @doctor, tab_user: @tab_user , admin_id: @assigned_by.id)
+		elsif appointment_params[:doctor_tokens].present?
+			@doctors.each do |doctor|
+			  @appointment = Appointment.create(doctor: doctor, tab_user: @tab_user , admin_id: @assigned_by.id)
+		  end
 		end
 		respond_to do |format|
 			if @appointment.save
@@ -58,6 +61,6 @@ class AppointmentsController < ApplicationController
   end
 
 	def appointment_params
-		params.require(:appointment).permit(:tab_user_name,:doctor_name,:medical_shop_name)
+		params.require(:appointment).permit(:tab_user_name,:doctor_name,:medical_shop_name,:doctor_tokens)
 	end
 end

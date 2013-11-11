@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery-ui
 //= require jquery_ujs
+//= require jquery.tokeninput
 //= require turbolinks
 //= require twitter/bootstrap
 //= require_tree .
@@ -35,11 +36,11 @@ $(function(){
 
     $("#doctor_name_check").bind('change', function(){
 			if(this.checked){
-			$("#appointment_doctor_name").show();
+			$(".token-input-list-facebook").show();
 			$("#medical_shop_check").attr("disabled","disabled");
 			}
 			else{
-			$("#appointment_doctor_name").hide();
+			$(".token-input-list-facebook").hide();
 				$("#medical_shop_check").removeAttr("disabled","disabled");
 			}
 		})
@@ -68,6 +69,14 @@ $(function(){
 				$("#report_sample_given_false").on("click",function(){
 					$("#sample_value").hide();
 				})
+
+				
+
+      $('#appointment_doctor_tokens').tokenInput('/doctors.json', {
+		  	theme: 'facebook'
+		  	//prePopulate: $('#appointment_doctor_tokens').data('load')
+			});
+
 
 
 })

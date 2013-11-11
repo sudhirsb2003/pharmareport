@@ -1,10 +1,10 @@
 class DoctorsController < ApplicationController
 	def index
-		@doctors=Doctor.order(:name).where("name ilike ?","%#{params[:term]}%")
+		@doctors=Doctor.order(:name).where("name ilike ?","%#{params[:q]}%")
 
     respond_to do |format|
        format.html # show.html.erb
-       format.json { render json: @doctors.map(&:name) }
+       format.json { render json: @doctors }
      end
 	end
 

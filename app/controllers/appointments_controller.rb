@@ -41,6 +41,7 @@ class AppointmentsController < ApplicationController
 
 	def show
 		@appointment = Appointment.find(params[:id])
+		@survey_report = @appointment.reports.new
 		@appointment_status=Appointment.appointment_status
 	end
 

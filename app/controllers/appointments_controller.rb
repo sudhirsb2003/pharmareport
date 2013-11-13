@@ -5,9 +5,9 @@ class AppointmentsController < ApplicationController
 
   def index
   	if current_user.admin?
-    	@appointments=Appointment.includes(:admin,:tab_user,:doctor,:medical_shop).all
+    	@appointments=Appointment.includes(:admin,:tab_user,:doctor,:medical_shop).load
     else
-  	@appointments=current_user.appointments
+  	@appointments = current_user.appointments
     end
   end
 
@@ -33,7 +33,7 @@ class AppointmentsController < ApplicationController
 		end
 		respond_to do |format|
 			if @appointment.save
-				format.html { redirect_to @appointment, notice: 'Appointment successfully created.' }
+				format.html { redirect_to appointments_path, notice: 'Appointment successfully created.' }
         format.json { render action: 'new', status: :created, location: @tab_user }
 			else
 				format.html { render action: 'new' }

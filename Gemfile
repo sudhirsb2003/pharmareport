@@ -23,6 +23,7 @@ end
  gem 'bcrypt-ruby', '~> 3.0.0'
 
  group :development do
+  gem 'quiet_assets'
   gem "better_errors"
   gem "binding_of_caller"
 end

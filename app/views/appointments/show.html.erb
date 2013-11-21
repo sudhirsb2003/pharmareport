@@ -1,8 +1,8 @@
 <% if current_user.admin? %>
-        <%= link_to "New Appointment" , new_appointment_path %> |
-        <%= link_to "Delete this Appointment" ,appointment_path , method: :delete ,data: {confirm: "Are you sure?"} %>
+  <b><%= link_to "New Appointment" , new_appointment_path %> |
+  <%= link_to "Delete this Appointment" ,appointment_path , method: :delete ,data: {confirm: "Are you sure?"} %></b>
 <% end %>
-
+<br><br>
 <table class="table table-condensed">
  <tr>
   <td> <b>Tab User :</b> </td>
@@ -46,18 +46,29 @@
 </div>
 
 <% else %>
-  <h4>Clinic Image:</h4> <%= image_tag @appointment.report.photo(:thumb) %><br><br><br>
-  <p>Product Shown :<% if  @appointment.report.product_shown == true %> Yes <% else %> NO <% end %></p>
-  <p>Sample Given <%= @appointment.report.sample_given %></p>
-  <% if @appointment.report.sample_given %>
-   <p>Product Copy given to Doctor/ Medical Shop: <%= @appointment.report.product_copy %></p>
-  <% end %>
-  <p>Does Doctor or shop have the stock of ptoduct already ? <%= @appointment.report.doctor_have_stock %>
-  <p> Doctors/medical comment : <%= @appointment.report.doctors_comment %></p>
+<h4>Clinic Image: </h4> <%= image_tag @appointment.report.photo(:thumb) %><br><br><br>
+<table class="table table-condensed">
+ <tr>
+   <th>Product Shown </th>
+   <th>Sample Given </th>
+   <th>Copies Given</th>
+   <th>Stock Already </th>
+   <th>comment</th>
+ </tr>
+ <tr>
+	 <% if  @appointment.report.product_shown == true %>
+	 <td> Yes </td><% else %><td> NO </td><% end %>
+	 <% if  @appointment.report.sample_given == true %>
+	 <td>Yes</td><% else %><td>NO</td><% end %>
+	 <% if @appointment.report.sample_given %>
+	 <td><%= @appointment.report.product_copy %></td>
+	 <% end %>
+	 <td><%= @appointment.report.doctor_have_stock %></td>
+	 <td width="30%"><%= @appointment.report.doctors_comment %></td>
+ </tr>
 <% end %>
-
-<br>
-<br>
+</table>
+<br><br>
 <% unless current_user.admin? %>
  <%= link_to "Start Survey" , "javascript:void(0)" , id: "start_survey_button" , :appointment_id => @appointment %>
 <% end %>

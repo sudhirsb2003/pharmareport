@@ -25,7 +25,7 @@
         <td><%= appointment.tab_user_name %></td>
         <td><%= appointment.doctor_name %></td>
         <td><%= link_to "View" , appointment_path(appointment)%></td>
-        <td><%= appointment.created_at %></td>
+        <td><%= time_tag appointment.created_at %></td>
       </tr>
 		<% end %>
 	 <% end %>

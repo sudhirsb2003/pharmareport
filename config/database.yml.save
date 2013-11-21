@@ -1,0 +1,5 @@
+development:
+    adapter: postgresql
+    host: localhost
+    database: pharma_report_developme    username: pharma
+    password: desidime123

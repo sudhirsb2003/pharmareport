@@ -3,10 +3,11 @@ class Appointment < ActiveRecord::Base
   belongs_to :medical_shop
   belongs_to :tab_user
   belongs_to :admin , class_name: "TabUser" , foreign_key: "admin_id"
-  has_many :reports
+  has_one :report
 
   attr_reader :doctor_tokens
-  
+
+  scope :pending, -> { where(status: 'Pending') }  
 
   def doctor_tokens=(ids)
     doctor_ids = ids.split(",")

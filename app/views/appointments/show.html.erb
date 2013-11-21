@@ -1,3 +1,7 @@
+<% if current_user.admin? %>
+        <%= link_to "New Appointment" , new_appointment_path %> |
+        <%= link_to "Delete this Appointment" ,appointment_path , method: :delete ,data: {confirm: "Are you sure?"} %>
+<% end %>
 
 <table class="table table-condensed">
  <tr>
@@ -31,18 +35,25 @@
 
   <tr>
 	<td><b>Status:</b></td>
-  <td><%= @appointment.status %></td>
+  <td style="color:green"><%= @appointment.status %></td>
 	</tr>
 
  </table><br>
 
+<% if @appointment.status == 'Pending' %>
 <div id="survey_report_form" style = "display:none">
 <%= render "survey_report" %>
 </div>
 
-<% if current_user.admin? %>
-	<%= link_to "New Appointment" , new_appointment_path %> |
-	<%= link_to "Delete this Appointment" ,appointment_path , method: :delete ,data: {confirm: "Are you sure?"} %>
+<% else %>
+  <h4>Clinic Image:</h4> <%= image_tag @appointment.report.photo(:thumb) %><br><br><br>
+  <p>Product Shown :<% if  @appointment.report.product_shown == true %> Yes <% else %> NO <% end %></p>
+  <p>Sample Given <%= @appointment.report.sample_given %></p>
+  <% if @appointment.report.sample_given %>
+   <p>Product Copy given to Doctor/ Medical Shop: <%= @appointment.report.product_copy %></p>
+  <% end %>
+  <p>Does Doctor or shop have the stock of ptoduct already ? <%= @appointment.report.doctor_have_stock %>
+  <p> Doctors/medical comment : <%= @appointment.report.doctors_comment %></p>
 <% end %>
 
 <br>

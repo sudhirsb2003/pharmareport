@@ -1,0 +1,20 @@
+<table class="table table-condensed">
+ <tr> 
+   <td> Doctor Name / Medical shop Name</td>
+   <td> Status </td>
+   <td> in time </td>
+   <td> Out time </td>
+ </tr>
+<% @completed.each do |c| %>
+<tr>
+<% if c.doctor %>
+ <td><%= link_to c.doctor.name, c %></td>
+<% else %>
+ <td><%= link_to c.medical_shop.shop_name, c %></td>
+<% end %>
+ <td><%= c.status %></td>
+ <td><%= c.in_time %></td>
+ <td><%= c.out_time %></td>
+</tr>
+<% end %>
+</table>

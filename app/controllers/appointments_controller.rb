@@ -7,7 +7,7 @@ class AppointmentsController < ApplicationController
   	if current_user.admin?
     	@appointments=Appointment.includes(:admin,:tab_user,:doctor,:medical_shop).load
     else
-  	@appointments = current_user.appointments
+  	@appointments = current_user.appointments.pending
     end
   end
 
@@ -44,12 +44,16 @@ class AppointmentsController < ApplicationController
 
 	def show
 		@appointment = Appointment.find(params[:id])
-		@survey_report = @appointment.reports.new
+#		@survey_report = @appointment.report.new
 		@appointment_status=Appointment.appointment_status
 	end
 
 	def edit
 	end
+
+        def completed
+          @completed = Appointment.where(status: 'Completed')
+        end
 
 	def update
 	end

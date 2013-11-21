@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Pharmareport</title>
+  <title>Sales Report</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => false %>
   <%= csrf_meta_tags %>
@@ -15,10 +15,11 @@
 
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="padding-left:10px;padding-right:20px;">
 <ul class="nav navbar-nav">
-  <li><a href="/">Pharma</a></li>
+  <li><a href="/"><b>ABOTT SALES REPORT</b></a></li>
   <% if logged_in? && current_user.admin?   %>
   <li><%= link_to 'Doctors', doctors_path %></li>
   <li><%= link_to 'Medical Stores', medical_shops_path %></li>
+  <li><%= link_to "Completed survey", completed_path  %></li>
   <% end %>
 </ul>
 

@@ -2,9 +2,11 @@ class ReportsController < ApplicationController
 
   def create
   @appointment=Appointment.find(params[:appointment_id])
-   @report = @appointment.reports.build(report_params)
-   @report.save
-   redirect_to appointments_path
+   @report = @appointment.build_report(report_params)
+   if @report.save
+    @appointment.update_attributes(:status => "Completed")
+   end
+   redirect_to appointments_path, :notice => "thank you !report successfully created!"
   end
 
 	private

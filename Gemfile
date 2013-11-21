@@ -14,7 +14,7 @@ gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
 gem 'jquery-rails' , '2.3.0'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.0.1'
-
+gem 'faker'
 group :doc do
   gem 'sdoc', require: false
 end

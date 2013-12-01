@@ -1,4 +1,6 @@
-<table class="table table-bordered" style="margin-top:120px;">
+<b style= "float:right"><%= link_to "New Store", new_medical_shop_path, :class=> "alert alert-info" %> </b><br><br><br>
+<div class="alert alert-danger">
+<table class="table">
  <tr>
   <th> Shop Name </th>
   <th> Address </th>
@@ -10,5 +12,4 @@
   </tr>
  <% end %>
  </table>
-
- <h5> <%= link_to "New Store", new_medical_shop_path, :class=> "label label-info" %> </h5>
+ </div>

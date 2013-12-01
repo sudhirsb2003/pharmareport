@@ -1,6 +1,7 @@
-<%= link_to 'Download spreadsheet', completed_url(format: :xlsx) %><br><br>
-<table class="table table-bordered">
- <tr style="background:silver">
+<b style= "float:right"><%= link_to 'Download spreadsheet as Excel', completed_url(format: :xlsx), :class=> "alert alert-info" %> </b><br><br><br>
+<div class="alert alert-success">
+<table class="table">
+ <tr>
    <th> Doctor Name / Medical shop Name</th>
    <th> Tab User Name </th>
    <th> Status </th>
@@ -17,9 +18,15 @@
 <% end %>
  <td><%= c.tab_user.name %></td>
  <td><%= c.status %></td>
+<% if c && c.in_time %>
  <td><%= c.in_time.strftime("%H:%M %P") %></td>
  <td><%= c.out_time.strftime("%H:%M %P") %></td>
  <td><%= distance_of_time_in_words(c.in_time, c.out_time) %></td>
+<% else %>
+ <td> - </td>
+ <td> - </td>
+ <td> - </td>
+<% end %>
 </tr>
 <% end %>
 </table>

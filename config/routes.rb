@@ -1,4 +1,5 @@
 Pharmareport::Application.routes.draw do
+  get "dashboards/index"
   resources :medical_shops
   resources :doctors
   resources  :appointments do

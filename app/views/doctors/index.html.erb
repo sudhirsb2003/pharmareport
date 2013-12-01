@@ -1,5 +1,9 @@
-<ul class ="pagination"><%= paginate @doctors %></ul>
-<table class="table table-bordered">
+<br><% if current_user.admin? %>
+ <b style= "float:right"><%= link_to "New Doctor", new_doctor_path, :class=> "alert alert-info" %> </b><br><br><br>
+<% end %>
+<ul class ="alert alert-info"><%= paginate @doctors %></ul>
+<div class="alert alert-danger">
+<table class="table">
  <tr>
    <th> Doctor Name </th>
    <th> Degree </th>
@@ -13,10 +17,6 @@
 </tr>
 <% end %>
 </table>
-
+</div>
 
 <%= paginate @doctors %>
-
-<br><% if current_user.admin? %>
- <%= link_to "Add more doctors", new_doctor_path, :class => "label label-info" %>
-<% end %>

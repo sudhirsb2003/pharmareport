@@ -1,7 +1,6 @@
 class DoctorsController < ApplicationController
 	def index
-		@doctors=Doctor.order(:name).where("name ilike ?","%#{params[:q]}%")
-
+	@doctors=Doctor.order(:name).where("name ilike ?","%#{params[:q]}%").page(params[:page]).per(25)
     respond_to do |format|
        format.html # show.html.erb
        format.json { render json: @doctors }

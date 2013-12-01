@@ -8,11 +8,13 @@ gem 'therubyracer'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem "paperclip", "~> 3.0"
+gem 'kaminari'
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
 		                          :github => 'anjlab/bootstrap-rails',
 		                          :branch => '3.0.0'
 gem 'jquery-rails' , '2.3.0'
 gem 'turbolinks'
+gem 'to_spreadsheet'
 gem 'jbuilder', '~> 1.0.1'
 gem 'faker'
 group :doc do

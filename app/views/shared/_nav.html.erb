@@ -1,0 +1,26 @@
+<ul class="nav nav-pills">
+  <li><a href="#">Pharma</a></li>
+  <% if logged_in? && current_user.admin? %>
+  <li><%= link_to 'Doctors', doctors_path %></li>
+  <li><%= link_to 'Medical Stores', medical_shops_path %></li>
+
+
+  <li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+      Appointment<span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+     <li><%= link_to "View appointments", appointments_path %></li>
+     <li><%= link_to "New appointment", new_appointment_path %></li>
+    </ul>
+  </li>
+    <% end %>
+ <div id = "user">
+  <% if current_user %>
+    <b style ="font-size:14px;">Welcome ! <u><%= current_user.name %><% if current_user.admin? %> (Admin) <% end %></u> |
+    <%= link_to "Signout" ,logout_path ,:method => :delete %></b>
+  <% else %>
+    <%= link_to "Register", signup_path %> / <%= link_to "Sign-in", login_path %>
+   <% end %>
+</div>
+</ul>

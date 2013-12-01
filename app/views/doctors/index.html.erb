@@ -1,4 +1,5 @@
-<table class="table table-condensed" style="margin-top:120px;">
+<ul class ="pagination"><%= paginate @doctors %></ul>
+<table class="table table-bordered">
  <tr>
    <th> Doctor Name </th>
    <th> Degree </th>
@@ -13,6 +14,9 @@
 <% end %>
 </table>
 
-<% if current_user.admin? %>
- <%= link_to "Add more doctors", new_doctor_path %>
+
+<%= paginate @doctors %>
+
+<br><% if current_user.admin? %>
+ <%= link_to "Add more doctors", new_doctor_path, :class => "label label-info" %>
 <% end %>

@@ -2,7 +2,6 @@ class AppointmentsController < ApplicationController
   before_action :login_required
   before_action :admin_required , only: [:create,:new]
 
-
   def index
   	if current_user.admin?
     	@appointments=Appointment.includes(:admin,:tab_user,:doctor,:medical_shop).load
@@ -51,9 +50,13 @@ class AppointmentsController < ApplicationController
 	def edit
 	end
 
-        def completed
-          @completed = Appointment.where(status: 'Completed')
-        end
+  def completed
+    @completed = Appointment.where(status: 'Completed')
+    respond_to do |format|
+      format.html
+      format.xlsx { render xlsx: :completed, filename: "Report" }
+   end
+  end
 
 	def update
 	end

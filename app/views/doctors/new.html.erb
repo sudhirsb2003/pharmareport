@@ -1,3 +1,5 @@
+<form role="form">
+  <div class="form-group">
 <%= form_for(@doctor)  do |f| %>
   <% if @doctor.errors.any? %>
     <div id="error_explanation">
@@ -13,25 +15,26 @@
 
   <div class="field">
     <%= f.label :Doctor_name %><br>
-    <%= f.text_field :name, :value => "Dr." %>
-  </div>
+    <%= f.text_field :name, :value => "Dr.", :class=>"form-control" %>
+  </div><br>
 
   <div class="field">
     <%= f.label :Degree %><br>
-    <%= f.text_field :degree %>
-  </div>
+    <%= f.text_field :degree, :class=>"form-control"%>
+  </div><br>
 
   <div class="field">
     <%= f.label :address %><br>
-    <%= f.text_area :address, :size => "50x6" %>
-  </div>
+    <%= f.text_area :address, :size => "50x6", :class=>"form-control" %>
+  </div><br>
 
   <div class="field">
     <%= f.label :photo %><br>
-    <%= f.file_field :photo %>
-  </div>
+    <%= f.file_field :photo, :id=>"exampleInputFile" %>
+  </div><br><br>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class=>"btn btn-default" %>
   </div>
 <% end %>
+</form>

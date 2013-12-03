@@ -1,23 +1,28 @@
-<b style ="float:right"><%= link_to "View All Appointments" , appointments_path, :class=> "label label-primary" %></b>
+<b style ="float:right"><%= link_to "View All Appointments" , appointments_path, :class=> "alert alert-info" %></b>
+<form role="form">
+  <div class="form-group">
 <%= form_for @appointment do |f| %>
 
 <div class="field">
 <%= f.label :tab_user_name %><br>
-<%= f.text_field :tab_user_name , data: {autocomplete_source: tab_users_path}, :placeholder => "Search by Tab user Name" %>
+<%= f.text_field :tab_user_name , data: {autocomplete_source: tab_users_path}, :placeholder => "Search by Tab user Name", :class=>"form-control" %>
 </div>
 <br><br>
 <b> Select one of the following</b><br><br>
-<div class="field">
-	<%= f.label :doctor %><br>
-	<%= check_box_tag :doctor_name_check %><br>
-	<%= f.text_field :doctor_tokens %>
-</div>
 
 <div class="field">
-<%= f.label :medical_shop_name %><br>
-<%= check_box_tag :medical_shop_check %><br>
-<%= f.text_field :medical_shop_name , data: {autocomplete_source: medical_shops_path} , :placeholder => "Search by Medical Shop Name" ,:style => "display:none" %>
+	<b>Select Doctor </b>
+	<%= check_box_tag :doctor_name_check %>
+	   &nbsp;&nbsp;&nbsp;&nbsp;
+	<b> Medical shop name </b>
+	<%= check_box_tag :medical_shop_check %>
+</div><br>
+
+<div class="field">
+	<%= f.text_field :doctor_tokens, :class=>"form-control" %>
+  <%= f.text_field :medical_shop_name , data: {autocomplete_source: medical_shops_path} , :placeholder => "Search by Medical Shop Name" ,:style => "display:none", :class=>"form-control"%>
 </div><br><br>
-<%= f.submit "Submit", :class=>"btn btn-primary" %>
+
+<%= f.submit "Make appointment", :class=>"btn btn-primary" %>
 
 <% end %>

@@ -65,12 +65,12 @@ $(function(){
 				$("#report_sample_given_true").on("click",function(){
 					$("#sample_value").show();
 				})
-				
+
 				$("#report_sample_given_false").on("click",function(){
 					$("#sample_value").hide();
 				})
 
-				
+
 
       $('#appointment_doctor_tokens').tokenInput('/doctors.json', {
 		  	theme: 'facebook'

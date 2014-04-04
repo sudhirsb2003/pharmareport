@@ -4,7 +4,7 @@ class AppointmentsController < ApplicationController
 
   def index
   	if current_user.admin?
-    	@appointments=Appointment.includes(:admin,:tab_user,:doctor,:medical_shop).load
+    	@appointments=Appointment.order("created_at DESC").includes(:admin,:tab_user,:doctor,:medical_shop).load
     else
   	@appointments = current_user.appointments.pending
     end

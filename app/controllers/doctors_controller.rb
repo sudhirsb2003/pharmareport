@@ -1,6 +1,10 @@
 class DoctorsController < ApplicationController
 	def index
+	if params[:q]
 	@doctors=Doctor.order(:name).where("name ilike ?","%#{params[:q]}%").page(params[:page]).per(25)
+	else
+	@doctors = Doctor.all
+	end
     respond_to do |format|
        format.html # show.html.erb
        format.json { render json: @doctors }
@@ -14,7 +18,7 @@ class DoctorsController < ApplicationController
   def create
    @doctor = Doctor.create(doctor_params)
    @doctor.save
-   redirect_to doctors_path, :notice => "donr!"
+   redirect_to doctors_path, :notice => "done!"
   end
 
 	private

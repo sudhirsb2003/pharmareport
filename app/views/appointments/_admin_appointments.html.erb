@@ -1,14 +1,14 @@
 <b style="float:right"><%= link_to "Make New Appointment" , new_appointment_path, :class=>"alert alert-info" %></b><br><br><br>
 <style>
- #container {height:500px;width:auto;}
+ #container {height:auto;width:auto;}
  #left{padding:10px;float:left; width:45%;}
  #right{padding:10px;float:right; width:45%;}
  h5{color:green}
 </style>
 <div id ="container">
 <div id ="left">
-<div class="alert alert-success"><strong>List of doctors</strong><br><br>
-<table class="table table-condensed">
+<strong>List of doctors</strong><br><br>
+<table class="table table-condensed table-bordered table-striped">
 <thead>
    <tr>
       <th>Tab User</th>
@@ -19,7 +19,7 @@
 
 <tbody>
 <% appointments.each do |appointment| %>
-   <% if appointment.doctor_id %>
+   <% if appointment && appointment.doctor_id %>
       <tr>
          <td><%= appointment.tab_user_name %></td>
          <td><%= appointment.doctor_name %></td>
@@ -40,8 +40,8 @@
 </div>
 
 <div id ="right">
-<div class="alert alert-danger"><strong>List of medical stores </strong><br><br>
-<table class="table table-condensed">
+<strong>List of medical stores </strong><br><br>
+<table class="table table-condensed table-bordered table-striped">
 	<thead>
 		<tr>
 	   <th>Tab User</th>
